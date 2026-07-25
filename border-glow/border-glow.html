@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Light Constant Speed</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            gap: 60px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            background: #0a0a12;
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .card-wrap {
+            position: relative;
+            width: 300px;
+            padding: 3px;
+            border-radius: 20px;
+        }
+
+        .card-wrap .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 50px 40px;
+            background-color:#12121c;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @keyframes lightRotate {
+            to { --angle: 360deg; }
+        }
+
+        .card-wrap::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: -1px;
+            background: conic-gradient(
+                from var(--angle),
+                transparent 0%,
+                transparent 70%,
+                #7dd3fc 85%,
+                #e0f2fe 90%,
+                #7dd3fc 95%,
+                transparent 100%
+            );
+            border-radius: inherit;
+            animation: lightRotate 5s linear infinite;
+        }
+
+        .card-wrap::after {
+            content: '';
+            position: absolute;
+            z-index: -2;
+            inset: -2px;
+            background: conic-gradient(
+                from var(--angle),
+                transparent 0%,
+                transparent 70%,
+                #38bdf8 85%,
+                #7dd3fc 90%,
+                #38bdf8 95%,
+                transparent 100%
+            );
+            border-radius: inherit;
+            filter: blur(5px);
+            opacity: 0.5;
+            animation: lightRotate 5s linear infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card-wrap::before,
+            .card-wrap::after {
+                animation: none;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="card-wrap">
+        <div class="card">
+            Use a conic-gradient around the frame + a blur layer behind it to create the feeling that light is "running" around the edges of the card, with a soft, ethereal glow.
+        </div>
+    </div>
+
+</body>
+</html>
