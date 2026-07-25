@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Light Constant Speed</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            background: #0a0a12;
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .card-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: fit-content;
+            padding: 4px 25px;
+            background-color:#12121c;
+            border-radius: 8px;
+        }
+
+        .card {
+            position: relative;
+            z-index: 2;
+        }
+
+        .border-motion {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @keyframes animatedStroke {
+            from {
+                stroke-dashoffset: 0;
+            }
+            to {
+                stroke-dashoffset: -522.9747924804688px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="card-wrap">
+        <div class="card">
+            TEXT
+        </div>
+        <div class="border-motion">
+            <svg width="100%" height="100%" viewBox="0 0 208.828125 65.203125" preserveAspectRatio="none" style="position: absolute; inset: 0px; overflow: visible; pointer-events: none;">
+                <rect x="0.5" y="0.5" width="207.828125" height="64.203125" rx="12" ry="12" fill="none" stroke="transparent" stroke-width="2"></rect>
+                <rect x="0.5" y="0.5" width="207.828125" height="64.203125" rx="12" ry="12" fill="none" stroke="#B3B3B3" stroke-width="2" opacity="0.16"></rect>
+                <rect x="0.5" y="0.5" width="207.828125" height="64.203125" rx="12" ry="12" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-dasharray="130.7436981201172 392.23109436035156" stroke-linecap="round" stroke-linejoin="round" style="animation: 3s linear 0s infinite normal none running animatedStroke;"></rect>
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>
