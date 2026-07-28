@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Elastic Columns</title>
+    <link rel="stylesheet" href="5-elastic-columns.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            background: #0a0a12;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="five-elastic-columns">
+
+        <?php for ($i=1; $i<=5; $i++) { ?>
+
+            <div class="layout-1">
+                <div class="layout-2">
+                    <div class="layout-3">
+                        <img src="image.jpg">
+                    </div>
+                    <div class="fiec-boder"></div>
+                </div>
+            </div>
+        
+        <?php } ?>
+            
+    </div>
+
+</body>
+</html>
