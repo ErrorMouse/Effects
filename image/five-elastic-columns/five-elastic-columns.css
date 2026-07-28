@@ -19,7 +19,6 @@
 
 #five-elastic-columns .layout-1 {
     position: relative;
-    flex-shrink: 0;
     width: calc(20% - 2px);
     height: 100%;
     overflow: visible;
@@ -95,8 +94,8 @@
 #five-elastic-columns img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     max-width: none;
+    object-fit: cover;
     user-select: none;
     pointer-events: none;
     backface-visibility: hidden;

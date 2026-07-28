@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Elastic Columns</title>
-    <link rel="stylesheet" href="5-elastic-columns.css">
+    <title>Five Elastic Columns</title>
+    <link rel="stylesheet" href="five-elastic-columns.css">
     <style>
         * {
             box-sizing: border-box;
@@ -31,7 +31,7 @@
             <div class="layout-1">
                 <div class="layout-2">
                     <div class="layout-3">
-                        <img src="image.jpg">
+                        <img src="image.jpg"/>
                     </div>
                     <div class="fiec-boder"></div>
                 </div>
