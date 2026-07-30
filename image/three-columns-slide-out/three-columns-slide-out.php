@@ -24,15 +24,114 @@
 </head>
 <body>
 
+    <?php
+        $images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+        $totalImages = count($images);
+    ?>
+
+    <!-- Basic -->
     <div id="three-columns-slide-out">
-        <?php for ($i=1; $i<=3; $i++) { ?>
-            <div class="slide-out">
-                <div class="layout">
-                    <img src="image.jpg"/>
-                </div>
+        <?php foreach ($images as $idx => $img) { ?>
+            <div class="image-slide <?php echo $idx === 0 ? 'active' : ''; ?>" data-index="<?php echo $idx; ?>">
+                <?php for ($col = 1; $col <= 3; $col++) { ?>
+                    <div class="slide-out">
+                        <div class="layout">
+                            <img src="<?php echo $img; ?>" alt="Image <?php echo $idx + 1; ?>"/>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         <?php } ?>
     </div>
+
+    <!-- For Elementor -->
+    <!--     
+    <div id="three-columns-slide-out">
+        <div class="image-slide active">
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image1.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image1.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image1.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="image-slide">
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image2.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image2.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image2.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="image-slide">
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image3.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image3.jpg"/>
+                </div>
+            </div>
+            <div class="slide-out">
+                <div class="layout">
+                    <img src="image3.jpg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <script>
+        (function() {
+            const container = document.getElementById('three-columns-slide-out');
+            const slides = container.querySelectorAll('.image-slide');
+            const total = slides.length;
+            let current = 0;
+
+            function showNext() {
+                const prevSlide = slides[current];
+                current = (current + 1) % total;
+                const nextSlide = slides[current];
+
+                const wasVisible = nextSlide.classList.contains('prev');
+
+                slides.forEach(s => s.classList.remove('prev'));
+                prevSlide.classList.remove('active');
+                prevSlide.classList.add('prev');
+                nextSlide.classList.add('active');
+
+                if (wasVisible) {
+                    nextSlide.querySelectorAll('.slide-out').forEach(col => {
+                        col.style.animation = 'none';
+                        col.offsetHeight;
+                        col.style.animation = '';
+                    });
+                }
+            }
+
+            setInterval(showNext, 4000);
+        })();
+    </script>
 
 </body>
 </html>

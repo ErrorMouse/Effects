@@ -1,13 +1,31 @@
 #three-columns-slide-out {
     position: relative;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 2px;
     width: 550px;
     max-width: 100%;
     height: auto;
     aspect-ratio: 550 / 650;
+}
+
+#three-columns-slide-out .image-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#three-columns-slide-out .image-slide.prev {
+    display: flex;
+    z-index: 1;
+}
+
+#three-columns-slide-out .image-slide.active {
+    display: flex;
+    z-index: 2;
 }
 
 #three-columns-slide-out .layout,
@@ -26,7 +44,7 @@
     contain: layout paint;
     will-change: transform;
     clip-path: inset(0% 0% 100% 0%);
-    animation: slideOut 1s cubic-bezier(0.53, 0.93, 0.79, 1) forwards;
+    animation: TCSOslideOut 1s cubic-bezier(0.53, 0.93, 0.79, 1) forwards;
 }
 
 #three-columns-slide-out .slide-out:nth-child(1) {
@@ -71,7 +89,7 @@
     opacity: 1;
 }
 
-@keyframes slideOut {
+@keyframes TCSOslideOut {
     from {
         clip-path: inset(0% 0% 100% 0%);
     }
